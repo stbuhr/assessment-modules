@@ -1,1 +1,103 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --active-background: hsl(261, 100%, 20%);
+  --active-foreground: white;
+  --disabled-background: hsl(0, 0%, 80%);
+  --disabled-foreground: hsl(0, 0%, 20%);
+  --enabled-text: hsl(0, 0%, 20%);
+  --disabled-text: hsl(0, 0%, 62%);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  color: var(--enabled-text);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.btn {
+  position: relative;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--active-foreground);
+  background-color: var(--active-background);
+  padding: 20px 30px;
+  border: 2px solid var(--active-background);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  color: var(--active-foreground);
+  background-color: var(--active-background);
+}
+
+.btn-secondary {
+  color: var(--active-background);
+  background-color: var(--active-foreground);
+}
+
+@media (hover: hover) {
+  .btn:hover:enabled {
+    scale: 1.1;
+  }
+}
+
+.btn:focus-visible::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border: 2px solid var(--active-background);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.btn-primary:focus-visible::after {
+  border-color: var(--active-foreground);
+}
+
+button:disabled {
+  color: var(--disabled-text);
+  background-color: var(--disabled-background);
+  border-color: var(--disabled-background);
+  cursor: not-allowed;
+}
+
+.btn-small {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.cdk-overplay-pane {
+  max-width: 100%;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
