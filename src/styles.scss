@@ -11,9 +11,33 @@
 html,
 body {
   font-family: Lato, "Helvetica Neue", sans-serif;
+  font-size: clamp(15px, calc(2vw + 2px), 20px);
   height: 100%;
   margin: 0;
   color: var(--enabled-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Varela Round", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 2.875rem;
+  color: var(--active-background);
+}
+
+h2 {
+  font-size: 1.75rem;
+  line-height: 2.375rem;
+  color: var(--active-background);
 }
 
 main {

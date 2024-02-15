@@ -1,16 +1,13 @@
-<div class="top-navigation" [matMenuTriggerFor]="menu">
+<div class="top-navigation">
   <div class="menu">
-    <mat-icon>menu</mat-icon>
+    <mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
     <mat-menu #menu="matMenu" class="popup">
-      <button mat-menu-item>Kompetenzatlas</button>
-      <button mat-menu-item>Teamrollen</button>
-      <button mat-menu-item>Soll-/Ist-Vergleich</button>
-      <button mat-menu-item>Deine Stärken</button>
-      <button mat-menu-item>Übertreibungsvermutungen</button>
-      <button mat-menu-item>Kompetenzentwicklung</button>
+      @for(page of pages; track page.name) { @if(page.inMenu) {
+      <button mat-menu-item (click)="gotoPage(page)">{{ page.name }}</button>
+      } }
     </mat-menu>
   </div>
-  <div class="title">Teamrollen</div>
+  <div class="title">{{ title() }}</div>
   <div class="info"><mat-icon>info</mat-icon></div>
   <div class="print"><mat-icon>print</mat-icon></div>
 </div>
@@ -81,6 +78,14 @@
   </p>
 </div>
 <div class="bottom-navigation">
-  <div class="prev"><mat-icon>skip_previous </mat-icon>Zum Kompetenzatlas</div>
-  <div class="next">Zum Soll-/Ist-Vergleich <mat-icon>skip_next</mat-icon></div>
+  <div class="prev" (click)="gotoPreviousPage()">
+    <mat-icon>skip_previous </mat-icon>
+    <span class="long">{{ previousPage().link }}</span>
+    <span class="short">{{ previousPage().shortLink }}</span>
+  </div>
+  <div class="next" (click)="gotoNextPage()">
+    <span class="long">{{ nextPage().link }}</span>
+    <span class="short">{{ nextPage().shortLink }}</span>
+    <mat-icon>skip_next</mat-icon>
+  </div>
 </div>

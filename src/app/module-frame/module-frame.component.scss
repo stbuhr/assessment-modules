@@ -31,11 +31,13 @@
   color: var(--active-foreground);
   background-color: var(--active-background);
   border-radius: 5px;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2);
   font-size: 1.2rem;
   font-weight: 700;
 
   .menu {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
@@ -45,6 +47,7 @@
     position: relative;
     aspect-ratio: 1/1;
     cursor: pointer;
+    transition: scale 0.3s ease-in-out;
   }
 
   .info::before {
@@ -61,8 +64,17 @@
     animation-iteration-count: infinite;
   }
 
+  .info:hover {
+    scale: 1.3;
+  }
+
   .print {
     cursor: pointer;
+    transition: scale 0.3s ease-in-out;
+  }
+
+  .print:hover {
+    scale: 1.3;
   }
 }
 
@@ -75,14 +87,53 @@
   color: var(--active-foreground);
   background-color: var(--active-background);
   border-radius: 5px;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2);
+
+  .prev,
+  .next {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    gap: 0.5rem;
+    transition: scale 0.3s ease-in-out;
+  }
 
   .prev {
     justify-self: start;
-    cursor: pointer;
+
+    .long {
+      display: none;
+    }
+  }
+
+  .prev:hover {
+    scale: 1.1;
   }
 
   .next {
     justify-self: end;
-    cursor: pointer;
+
+    .long {
+      display: none;
+    }
   }
+
+  .next:hover {
+    scale: 1.1;
+  }
+
+  @media screen and (min-width: 40rem) {
+    .short {
+      display: none;
+    }
+    .prev .long,
+    .next .long {
+      display: block;
+    }
+  }
+}
+
+.content {
+  padding: 1rem;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2);
 }
