@@ -6,7 +6,11 @@
     <div class="title">{{ currentPage().title }}</div>
     <div class="subtitle">{{ currentPage().subtitle }}</div>
   </div>
-  <div class="content" [innerHTML]="currentPage().content"></div>
+  <div
+    class="content"
+    #contentElement
+    [innerHTML]="currentPage().content"
+  ></div>
   <footer>
     <app-progress-indicator
       [count]="pageCount()"

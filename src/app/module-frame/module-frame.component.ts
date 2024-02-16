@@ -86,11 +86,11 @@ export class ModuleFrameComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.dialog.open(InfoDialogComponent, {
-      maxHeight: '100%',
-      maxWidth: '100%',
-      disableClose: true,
-    });
+    // this.dialog.open(InfoDialogComponent, {
+    //   maxHeight: '100%',
+    //   maxWidth: '100%',
+    //   disableClose: true,
+    // });
   }
 
   gotoPage(page: Page) {

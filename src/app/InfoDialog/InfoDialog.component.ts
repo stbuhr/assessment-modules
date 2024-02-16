@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   HostListener,
+  ViewChild,
   WritableSignal,
   computed,
   signal,
@@ -83,22 +85,27 @@ export class InfoDialogComponent {
     }
   }
 
+  @ViewChild('contentElement') contentElement:
+    | ElementRef<HTMLDivElement>
+    | undefined;
+
   defaultTouch = { x: 0, y: 0, time: 0 };
+  isTouching = false;
 
   @HostListener('touchstart', ['$event'])
   @HostListener('touchend', ['$event'])
+  @HostListener('touchmove', ['$event'])
   handleTouch(event: TouchEvent) {
     let touch = event.touches[0] || event.changedTouches[0];
 
     if (event.type === 'touchstart') {
-      console.log('touchstart');
       this.defaultTouch = {
         x: touch.pageX,
         y: touch.pageY,
         time: event.timeStamp,
       };
+      this.isTouching = true;
     } else if (event.type === 'touchend') {
-      console.log('touchend');
       let deltaX = touch.pageX - this.defaultTouch.x;
       let deltaTime = event.timeStamp - this.defaultTouch.time;
 
@@ -111,6 +118,19 @@ export class InfoDialogComponent {
           }
         }
       }
+      if (this.contentElement) {
+        this.contentElement.nativeElement.style.transform = `translateX(0px)`;
+      }
+      this.isTouching = false;
+    } else if (event.type === 'touchmove') {
+      if (!this.isTouching) return;
+
+      // let deltaX = touch.pageX - this.defaultTouch.x;
+      // console.log('touchmove ' + deltaX);
+
+      // if (this.contentElement) {
+      //   this.contentElement.nativeElement.style.transform = `translateX(${deltaX}px)`;
+      // }
     }
   }
 }
