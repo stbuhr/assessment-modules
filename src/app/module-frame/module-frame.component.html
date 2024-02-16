@@ -9,10 +9,14 @@
     </mat-menu>
   </div>
   <div class="module-title">{{ title() }}</div>
-  <div class="info" [class.blinking]="infoNotYetRead()" (click)="openInfo()">
+  <div
+    class="info icon-button"
+    [class.blinking]="infoNotYetRead()"
+    (click)="openInfo()"
+  >
     <mat-icon>info</mat-icon>
   </div>
-  <div class="print"><mat-icon>print</mat-icon></div>
+  <div class="print icon-button"><mat-icon>print</mat-icon></div>
 </div>
 <div class="content">
   <h1>Inhalt des Moduls</h1>

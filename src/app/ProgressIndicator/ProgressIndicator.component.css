@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+.indicator-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.indicator-bar > .indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 2px solid var(--dimmed-border);
+  background-color: var(--active-foregraound);
+}
+
+.indicator-bar > .indicator.active {
+  background-color: var(--dimmed-background);
+}

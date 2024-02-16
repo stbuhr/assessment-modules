@@ -1,0 +1,5 @@
+<div class="indicator-bar">
+  @for (item of [].constructor(count()); track $index) {
+  <div class="indicator" [class.active]="$index === current()"></div>
+  }
+</div>

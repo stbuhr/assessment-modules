@@ -49,25 +49,6 @@
     height: 1.5rem;
     cursor: pointer;
   }
-
-  .info {
-    aspect-ratio: 1/1;
-    cursor: pointer;
-    transition: scale 0.3s ease-in-out;
-  }
-
-  .info:hover {
-    scale: 1.3;
-  }
-
-  .print {
-    cursor: pointer;
-    transition: scale 0.3s ease-in-out;
-  }
-
-  .print:hover {
-    scale: 1.3;
-  }
 }
 
 .bottom-navigation {

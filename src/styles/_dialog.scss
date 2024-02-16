@@ -1,0 +1,18 @@
+.dialog {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: clamp(360px, 90vw, 1200px);
+}
+
+.dialog > header {
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: 1rem;
+  background-color: var(--active-background);
+  color: var(--active-foreground);
+}
+
+.dialog > footer {
+  display: grid;
+  padding: 1rem;
+}

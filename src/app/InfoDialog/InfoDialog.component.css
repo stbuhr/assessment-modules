@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  max-height: 100dvh;
+}
+
+.dialog {
+  width: clamp(360px, 90vw, 500px);
+  min-height: 100svh;
+}
+
+@media screen and (min-width: 40rem) {
+  .dialog {
+    min-height: 600px;
+  }
+}
+
+.header {
+  position: relative;
+  min-height: 1rem;
+  padding: 1rem;
+  text-align: center;
+  color: var(--title-text);
+
+  .title {
+    font-size: .8rem;
+    font-weight: 600;
+    margin-bottom: .4rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+.close {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+}
+
+.content {
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  margin-top: 1rem;
+
+  .exit {
+    justify-self: center;
+  }
+}

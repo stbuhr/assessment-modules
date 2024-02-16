@@ -1,6 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
+import { InfoDialogComponent } from '../InfoDialog/InfoDialog.component';
 
 interface Page {
   inMenu: boolean;
@@ -17,7 +19,7 @@ interface Page {
   templateUrl: './module-frame.component.html',
   styleUrl: './module-frame.component.scss',
 })
-export class ModuleFrameComponent {
+export class ModuleFrameComponent implements OnInit {
   pages = [
     {
       inMenu: false,
@@ -81,6 +83,16 @@ export class ModuleFrameComponent {
   nextPage = signal<Page>(this.pages[2]);
   infoNotYetRead = signal(true);
 
+  constructor(public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    this.dialog.open(InfoDialogComponent, {
+      maxHeight: '100%',
+      maxWidth: '100%',
+      disableClose: true,
+    });
+  }
+
   gotoPage(page: Page) {
     const current = this.pages.indexOf(page);
     this.previousPage.set(this.pages[current - 1]);
@@ -107,6 +119,11 @@ export class ModuleFrameComponent {
   }
 
   openInfo() {
+    this.dialog.open(InfoDialogComponent, {
+      maxHeight: '100%',
+      maxWidth: '100%',
+      disableClose: true,
+    });
     this.infoNotYetRead.set(false);
   }
 }

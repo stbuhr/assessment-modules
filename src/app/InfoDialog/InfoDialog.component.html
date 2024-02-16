@@ -1,0 +1,25 @@
+<div class="dialog">
+  <div class="header">
+    <div class="close icon-button" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </div>
+    <div class="title">{{ currentPage().title }}</div>
+    <div class="subtitle">{{ currentPage().subtitle }}</div>
+  </div>
+  <div class="content" [innerHTML]="currentPage().content"></div>
+  <footer>
+    <app-progress-indicator
+      [count]="pageCount()"
+      [current]="pageNumber()"
+    ></app-progress-indicator>
+    <div class="actions">
+      <div class="prev icon-button" (click)="gotoPreviousPage()">
+        <mat-icon>skip_previous </mat-icon>
+      </div>
+      <div class="exit">Einleitung überspringen</div>
+      <div class="next icon-button" (click)="gotoNextPage()">
+        <mat-icon>skip_next</mat-icon>
+      </div>
+    </div>
+  </footer>
+</div>

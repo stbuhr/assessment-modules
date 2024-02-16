@@ -33,3 +33,13 @@
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
+
+.icon-button {
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  transition: scale 0.3s ease-in-out;
+}
+
+.icon-button:hover {
+  scale: 1.3;
+}
