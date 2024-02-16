@@ -40,6 +40,11 @@
   transition: scale 0.3s ease-in-out;
 }
 
-.icon-button:hover {
+.icon-button.disabled {
+  color: var(--disabled-text);
+  cursor: not-allowed;
+}
+
+.icon-button:not(.disabled):hover {
   scale: 1.3;
 }

@@ -1,4 +1,4 @@
-<div class="dialog">
+<div class="dialog" (keydown)="onKeyDown($event)">
   <div class="header">
     <div class="close icon-button" (click)="close()">
       <mat-icon>close</mat-icon>
@@ -13,11 +13,19 @@
       [current]="pageNumber()"
     ></app-progress-indicator>
     <div class="actions">
-      <div class="prev icon-button" (click)="gotoPreviousPage()">
+      <div
+        class="prev icon-button"
+        (click)="gotoPreviousPage()"
+        [class.disabled]="pageNumber() === 0"
+      >
         <mat-icon>skip_previous </mat-icon>
       </div>
-      <div class="exit">Einleitung überspringen</div>
-      <div class="next icon-button" (click)="gotoNextPage()">
+      <div class="exit" (click)="close()">Einleitung überspringen</div>
+      <div
+        class="next icon-button"
+        (click)="gotoNextPage()"
+        [class.disabled]="pageNumber() === pageCount() - 1"
+      >
         <mat-icon>skip_next</mat-icon>
       </div>
     </div>

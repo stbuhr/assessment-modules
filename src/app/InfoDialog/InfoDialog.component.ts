@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  HostListener,
   WritableSignal,
   computed,
   signal,
@@ -66,6 +67,50 @@ export class InfoDialogComponent {
   gotoNextPage() {
     if (this.pageNumber() < this.pages.length - 1) {
       this.pageNumber.set(this.pageNumber() + 1);
+    }
+  }
+
+  @HostListener('document:keyup', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'ArrowLeft') {
+      if (event.repeat) return;
+      this.gotoPreviousPage();
+    } else if (event.key === 'ArrowRight') {
+      if (event.repeat) return;
+      this.gotoNextPage();
+    } else if (event.key === 'Escape') {
+      this.close();
+    }
+  }
+
+  defaultTouch = { x: 0, y: 0, time: 0 };
+
+  @HostListener('touchstart', ['$event'])
+  @HostListener('touchend', ['$event'])
+  handleTouch(event: TouchEvent) {
+    let touch = event.touches[0] || event.changedTouches[0];
+
+    if (event.type === 'touchstart') {
+      console.log('touchstart');
+      this.defaultTouch = {
+        x: touch.pageX,
+        y: touch.pageY,
+        time: event.timeStamp,
+      };
+    } else if (event.type === 'touchend') {
+      console.log('touchend');
+      let deltaX = touch.pageX - this.defaultTouch.x;
+      let deltaTime = event.timeStamp - this.defaultTouch.time;
+
+      if (deltaTime < 500) {
+        if (Math.abs(deltaX) > 60) {
+          if (deltaX > 0) {
+            this.gotoPreviousPage();
+          } else {
+            this.gotoNextPage();
+          }
+        }
+      }
     }
   }
 }
