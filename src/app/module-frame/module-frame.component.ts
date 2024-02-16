@@ -79,6 +79,7 @@ export class ModuleFrameComponent {
   title = signal('Kompetenzatlas');
   previousPage = signal<Page>(this.pages[0]);
   nextPage = signal<Page>(this.pages[2]);
+  infoNotYetRead = signal(true);
 
   gotoPage(page: Page) {
     const current = this.pages.indexOf(page);
@@ -103,5 +104,9 @@ export class ModuleFrameComponent {
       this.title.set(this.pages[current - 1].name);
       this.nextPage.set(this.pages[current]);
     }
+  }
+
+  openInfo() {
+    this.infoNotYetRead.set(false);
   }
 }

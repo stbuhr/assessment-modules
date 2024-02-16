@@ -1,4 +1,5 @@
 <div class="top-navigation">
+  <div class="title">Kompetenzcheck vom 10.02.2024 (Selbsteinschätzung)</div>
   <div class="menu">
     <mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
     <mat-menu #menu="matMenu" class="popup">
@@ -7,8 +8,10 @@
       } }
     </mat-menu>
   </div>
-  <div class="title">{{ title() }}</div>
-  <div class="info"><mat-icon>info</mat-icon></div>
+  <div class="module-title">{{ title() }}</div>
+  <div class="info" [class.blinking]="infoNotYetRead()" (click)="openInfo()">
+    <mat-icon>info</mat-icon>
+  </div>
   <div class="print"><mat-icon>print</mat-icon></div>
 </div>
 <div class="content">

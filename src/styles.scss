@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@use "styles/icons";
+
 :root {
   --active-background: hsl(261, 100%, 20%);
   --active-foreground: white;
