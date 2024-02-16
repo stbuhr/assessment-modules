@@ -48,6 +48,14 @@
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
+
+    .icon {
+      transition: scale 0.3s ease-in-out;
+    }
+
+    .icon:hover {
+      scale: 1.3;
+    }
   }
 }
 
@@ -68,7 +76,6 @@
     cursor: pointer;
     align-items: center;
     gap: 0.5rem;
-    transition: scale 0.3s ease-in-out;
   }
 
   .prev {
@@ -79,8 +86,14 @@
     }
   }
 
-  .prev:hover {
-    scale: 1.1;
+  .prev .icon,
+  .next .icon {
+    transition: scale 0.3s ease-in-out;
+  }
+
+  .prev:hover > .icon,
+  .next:hover > .icon {
+    scale: 1.3;
   }
 
   .next {
@@ -89,10 +102,6 @@
     .long {
       display: none;
     }
-  }
-
-  .next:hover {
-    scale: 1.1;
   }
 
   @media screen and (min-width: 40rem) {
@@ -109,4 +118,5 @@
 .content {
   padding: 1rem;
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }

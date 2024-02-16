@@ -32,9 +32,12 @@ export class InfoDialogComponent {
     {
       title: 'Entdecke die Vielfalt deiner Fähigkeiten',
       subtitle: '64 Teilkompetenzen',
-      content: `<p>Tauche tiefer in die Welt deiner Fähigkeiten und Potenziale ein:</p>
-    <p>Der KODE® KompetenzAtlas ordnet jede deiner Teilkompetenzen den vier Grundkompetenzen P (Personale Kompetenz), A (Aktivitäts- und Handlungskompetenz), F (Fach- und Methodenkompetenz) und S (Sozial-kommunikative Kompetenz) zu.</p>
-    <p>Verstehe, wie jede Fähigkeit ein einzigartiges Element deines Kompetenzprofils bildet.</p>`,
+      content: `
+        <img src="assets/atlas.svg" alt="KODE KompetenzAtlas" width="120" height="120" />
+        <p>Tauche tiefer in die Welt deiner Fähigkeiten und Potenziale ein:</p>
+        <p>Der KODE® KompetenzAtlas ordnet jede deiner Teilkompetenzen den vier Grundkompetenzen P (Personale Kompetenz), A (Aktivitäts- und Handlungskompetenz), F (Fach- und Methodenkompetenz) und S (Sozial-kommunikative Kompetenz) zu.</p>
+        <p>Verstehe, wie jede Fähigkeit ein einzigartiges Element deines Kompetenzprofils bildet.</p>
+        `,
     },
     {
       title: 'Deine Teilkompetenzen',
@@ -89,8 +92,8 @@ export class InfoDialogComponent {
     | ElementRef<HTMLDivElement>
     | undefined;
 
-  defaultTouch = { x: 0, y: 0, time: 0 };
-  isTouching = false;
+  private defaultTouch = { x: 0, y: 0, time: 0 };
+  private isTouching = false;
 
   @HostListener('touchstart', ['$event'])
   @HostListener('touchend', ['$event'])

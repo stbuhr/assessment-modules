@@ -1,10 +1,12 @@
 <div class="top-navigation">
   <div class="title">Kompetenzcheck vom 10.02.2024 (Selbsteinschätzung)</div>
   <div class="menu">
-    <mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
+    <mat-icon [matMenuTriggerFor]="menu" class="icon">menu</mat-icon>
     <mat-menu #menu="matMenu" class="popup">
       @for(page of pages; track page.name) { @if(page.inMenu) {
-      <button mat-menu-item (click)="gotoPage(page)">{{ page.name }}</button>
+      <button mat-menu-item (click)="gotoPage(page)">
+        {{ page.name }}
+      </button>
       } }
     </mat-menu>
   </div>
@@ -19,7 +21,7 @@
   <div class="print icon-button"><mat-icon>print</mat-icon></div>
 </div>
 <div class="content">
-  <h1>Inhalt des Moduls</h1>
+  <h1>Inhalt des Moduls {{ title() }}</h1>
   <h2>Zweck dieser Demo</h2>
   <p>
     Diese Demo soll zum einen die Navigation zwischen den Modulen über die Kopf-
@@ -86,13 +88,13 @@
 </div>
 <div class="bottom-navigation">
   <div class="prev" (click)="gotoPreviousPage()">
-    <mat-icon>skip_previous </mat-icon>
+    <mat-icon class="icon">skip_previous</mat-icon>
     <span class="long">{{ previousPage().link }}</span>
     <span class="short">{{ previousPage().shortLink }}</span>
   </div>
   <div class="next" (click)="gotoNextPage()">
     <span class="long">{{ nextPage().link }}</span>
     <span class="short">{{ nextPage().shortLink }}</span>
-    <mat-icon>skip_next</mat-icon>
+    <mat-icon class="icon">skip_next</mat-icon>
   </div>
 </div>
