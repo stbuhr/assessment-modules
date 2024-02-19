@@ -1,27 +1,25 @@
-# AssessmentModules
+Diese Demo-Anwendung soll die Darstellung von Auswertungen demonstrieren.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+Die Anwendung kann über den Link https://stbuhr.github.io/assessment-modules/ aufgerufen werden.
 
-## Development server
+Folgende Funktionen sind hier umgesetzt:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Allgemein
+- Der Dummy ist komplett responsiv
+- Hauptseite und Erläuterungsdialog lassen sich auf einem Touchscreen auch per Swipen umschalten. Eine entsprechende Animation wäre hier schön, ist aber nicht umgesetzt.
+- Die Schriftgröße passt sich in Grenzen der Fenstergröße an. Auf Smartphones ist die Schrift so klein wie bisher (Fließtext 15px). Wird der Bildschirm größer, wird auch die Schrift größer (Fließtext bis maximal 20px). Alle Überschriften usw. passen sich proportional an.
+- Die Bezeichnungen der Navigations-Schaltflächen (z.B. "Zu den Übertreibungsvermutungen") werden automatisch gekürzt, wenn der Bildschirm schaler wird.
 
-## Code scaffolding
+# Hauptseite
+- Darstellung der Inhalte einer Auswertung als einzelne Module (nur Dummy-Inhalte)
+- Auswahl der Module über ein Menü (Burger-Menü oben links)
+- Wechsel zwischen den Modulen über Schaltflächen unten
+- Pulsierenden Info-Button, wenn Info noch nicht gelesen wurde.
+- Klick auf Info-Button öffnet Erläuterungen
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Erläuterungs-Dialog
+- Seitenweise Darstellung der Erläuterungen
+- Wechsel zwischen den Seiten über Buttons unten
+- Wechsel zwischen den Seiten über Tastatur (links, rechts)
+- Schließen des Dialogs über Kreuz (oben rechts) oder Link "Einleitung überspringen" unten
+- Darstellung der aktuellen Position über Indikator (unten mittig)
